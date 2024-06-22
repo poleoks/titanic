@@ -1,20 +1,23 @@
-#%
+#%%
 # import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import os
-import re
+# import os
+# import re
 # import sklearn
 from sklearn.model_selection import train_test_split as tts
 from sklearn.preprocessing import OneHotEncoder
 
 #%%
 #read data
-gender_df=pd.read_csv("gender_submission.csv")
-train_df=pd.read_csv("train.csv")
-test_df=pd.read_csv("test.csv")
-
+gender_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/gender_submission.csv?raw=true" #,index_col=0
+                      )
+train_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/train.csv?raw=true")
+test_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/test.csv?raw=true")
+print(train_df.columns)
 #%%
 train_target=train_df['Survived']
+
+#%%
 train_df=train_df[['PassengerId', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
        'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked']]
 
@@ -69,3 +72,5 @@ test_df[encoded_cols]=ohe.transform(test_df[categorical_cols])
 # %%
 train_df.columns
 # %%
+
+#%%
