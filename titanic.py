@@ -1,7 +1,5 @@
-#%%
-#import modules
-
-import numpy as np # linear algebra
+#%
+# import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import os
 import re
@@ -9,14 +7,11 @@ import re
 from sklearn.model_selection import train_test_split as tts
 from sklearn.preprocessing import OneHotEncoder
 
-#change dir
-os.chdir('P:/Pertinent Files/Python/scripts')
-
 #%%
 #read data
-gender_df=pd.read_csv("P:/Domestic/CI/Kaggle Submission/titanic/gender_submission.csv")
-train_df=pd.read_csv("P:/Domestic/CI/Kaggle Submission/titanic/train.csv")
-test_df=pd.read_csv("P:/Domestic/CI/Kaggle Submission/titanic/test.csv")
+gender_df=pd.read_csv("gender_submission.csv")
+train_df=pd.read_csv("train.csv")
+test_df=pd.read_csv("test.csv")
 
 #%%
 train_target=train_df['Survived']
