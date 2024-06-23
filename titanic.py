@@ -13,7 +13,9 @@ gender_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/gender_submi
                       )
 train_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/train.csv?raw=true")
 test_df=pd.read_csv("https://github.com/poleoks/titanic/blob/main/test.csv?raw=true")
-print(train_df.columns)
+#%%
+combine=[train_df,test_df]
+print(combine.columns.values)
 #%%
 train_target=train_df['Survived']
 train_df=train_df[['PassengerId', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
