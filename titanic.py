@@ -1,4 +1,8 @@
 #%%
+#activate venv
+# Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+# ./env/Scripts/activate.ps1
+#%%
 # import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 # import os
@@ -43,6 +47,10 @@ X_train=train_df[test_df.columns.values]
 #Explore data
 #show all dtype per attr
 test_df.info()
+
+#%%
+#drop variables with high NAs
+X_train.drop(columns='Cabin', inplace=True)
 #%%
 #show summary of numeric data
 X_train.describe()
@@ -50,6 +58,10 @@ X_train.describe()
 #show summary of categorical data
 X_train.describe(include=['O'])
 
+#%%
+
+X_train['Title'] = X_train.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
+X_train['Title']
 
 #%%
 #Analyse by Pivoting
